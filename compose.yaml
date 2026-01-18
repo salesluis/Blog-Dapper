@@ -1,0 +1,18 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: "1q2w3e4r@#$"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+  mssqltools:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - sqlserver
+    volumes:
+      - ./Scripts/Create_Database.sql:/tmp/Create_Database.sql
+      - ./Scripts/Seed_Blog_Database.sql:/tmp/Seed_Blog_Database.sql
+      - ./init-database-blog.sh:/tmp/init-database-blog.sh
+    command: /bin/bash ./tmp/init-database-blog.sh
