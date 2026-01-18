@@ -5,9 +5,6 @@ Um sistema completo de blog desenvolvido em **C# .NET** utilizando **Dapper** pa
 ## 📋 Índice
 
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Pré-requisitos](#-pré-requisitos)
 - [Instalação e Configuração](#-instalação-e-configuração)
 - [Como Executar](#-como-executar)
 - [Modelo de Dados](#-modelo-de-dados)
