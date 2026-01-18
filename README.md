@@ -1,7 +1,3 @@
-# 📝 Blog - Sistema de Gerenciamento de Blog
-
-Um sistema completo de blog desenvolvido em **C# .NET** utilizando **Dapper** para acesso a dados e **SQL Server** como banco de dados. O projeto implementa uma arquitetura moderna com suporte a Docker para facilitar o desenvolvimento e deploy.
-
 ## 📋 Índice
 
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
