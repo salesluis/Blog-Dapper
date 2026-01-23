@@ -6,9 +6,7 @@ namespace Blog.Models;
 public class User
 {
     public User()
-    {
-        Roles = new List<Role>();
-    }
+       => Roles = new List<Role>();
 
     [Key] 
     public int Id { get; set; }

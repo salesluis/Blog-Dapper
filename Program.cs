@@ -1,25 +1,23 @@
 ﻿using Blog.Config;
 using Blog.Models;
-using Blog.Querys;
+using Blog.Repositories;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
 using var connection = new SqlConnection(Config.ConnectionString);
 
-var userQuery = new UserQuery(connection);
+var repository = new Repository<User>(connection);
 
 //########################################################
-var users = await userQuery.GetAllAsync();
-foreach (var u in users)
-{
-    Console.WriteLine($"User: {u.Id},  Email: {u.Email}");
-}
+var models = await repository.GetAllAsync();
+foreach (var m in models)
+    Console.WriteLine($"User: {m.Id},  Email: {m.Email}");
 //########################################################
-var user = await userQuery.GetByIdAsync(1);
-Console.WriteLine(user.Email);
+var model = await repository.GetByIdAsync(1);
+Console.WriteLine(model.Email);
 
 //########################################################
-var userInsert = new User()
+var modelInsert = new User()
 {
     Name = "testando insert",
     Bio = "teste de insert",
@@ -28,10 +26,10 @@ var userInsert = new User()
     PasswordHash = "HASH",
     Slug = "Insert-teste-2"
 };
-userQuery.CreateAsync(userInsert);
+await repository.CreateAsync(modelInsert);
 
 //########################################################
-await userQuery.UpdateAsync(userInsert);
+await repository.UpdateAsync(modelInsert);
 
 //########################################################
-await userQuery.DeleteAsync(3);
+await repository.DeleteAsync(3);
