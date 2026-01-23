@@ -2,7 +2,7 @@ using Dapper.Contrib.Extensions;
 
 namespace Blog.Models;
 
-[Table("User")]
+[Table("[User]")]
 public class User
 {
     public User()
